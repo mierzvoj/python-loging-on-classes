@@ -17,21 +17,14 @@ def begin():
         if option == 1:
             newapi.login()
         else:
-            newuser = createNewUser()
-            newapi.login(newuser)
+
+            newapi.register()
         newapi.options()
 
 
 def createNewLoggingApi():
     newapi = LoggingApi()
     return newapi
-
-
-def createNewUser():
-    username = input("Utwórz konto użytkownika, podaj swój login / username: ")
-    password = input("Podaj swoje nowe hasło: ")
-    newuser = User(username=username, password=password)
-    return newuser
 
 
 begin()
