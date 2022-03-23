@@ -17,7 +17,6 @@ def begin():
         if option == 1:
             newapi.login()
         else:
-
             newapi.register()
         newapi.options()
 

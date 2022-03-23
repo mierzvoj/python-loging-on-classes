@@ -41,10 +41,10 @@ class LoggingApi:
         csv_file = csv.reader(open("users.csv", "r"))
         for row in csv_file:
             if login == row[0]:
-                print(row)
+                print("Znalazłem szukany login: " + row)
             else:
-                print("--------------------------")
-                break
+                print("------nic nie znaleziono--------")
+            break
 
     def deleteEntry(self):
         name = input("Podaj login do usunięcia: ")
