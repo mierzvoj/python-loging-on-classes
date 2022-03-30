@@ -70,12 +70,27 @@ class LoggingApi:
                 break
 
     def deleteEntry(self):
-        member_name = input("Podaj login do usunięcia: ")
+        lines = list()
+        name = input("Podaj login do usunięcia: ")
         with open('users.csv', 'r+', newline='') as in_file:
-            rows = [row for row in csv.reader(in_file) if member_name not in row]
-            in_file.seek(0)
-            writer = csv.writer(in_file)
-            writer.writerows(rows)
+            # rows = [row for row in csv.reader(in_file) if member_name not in row]
+            # in_file.seek(0)
+            # writer = csv.writer(in_file)
+            # writer.writerows(rows)
+            reader = csv.reader(in_file)
+            for row in reader:
+                lines.append(row)
+                for field in row:
+                    if field == name:
+                        lines.remove(row)
+        with open('users.csv', 'w', newline='') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lines)
+
+
+
+
+
 
     def options(self):
         while self.islogged:
